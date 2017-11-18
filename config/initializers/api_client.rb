@@ -2,7 +2,7 @@ class ApiClient
   attr_reader :faraday
 
   def initialize
-    @faraday = Faraday.new( url: 'http://localhost:3000')  #, :headers => {"Content-Type" => "application/json"}
+    @faraday = Faraday.new( url: 'http://localhost:3000')
   end
 
   # Rentals

@@ -1,0 +1,40 @@
+<div id="this-carousel-id" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="item active">
+      <%= image_tag "maledives.png" %>
+      <div class="carousel-caption">
+        <h1>Booking App</h1>
+        <h3>Don't be afraid to book!</h3>
+        <h2><%= link_to "Sign up here.", '#', class: "btn btn-lg btn-default" %></h2>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag "placeholder.png" %>
+      <div class="carousel-caption">
+        <h1>Simply Book!</h1>
+        <h2><%= link_to "Book", '#', class: "btn btn-default btn-lg" %> </h2>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag "placeholder.png" %>
+    </div>
+  </div>
+  <a class="carousel-control left" href="#this-carousel-id" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control right" href="#this-carousel-id" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<script>
+    $(document).ready(function(){
+        $('.carousel').carousel()
+    });
+</script>

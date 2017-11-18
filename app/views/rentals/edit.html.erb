@@ -1,0 +1,11 @@
+<% provide(:title, "Edit Rental") %>
+<% provide(:button_text, "Save changes") %>
+<div class="container">
+  <h1>Edit Rental</h1>
+
+  <%= simple_form_for @rental, url: url_for(action: 'update', :controller => 'rentals'), :method => 'patch'  do |f| %>
+      <%= f.input :name %>
+      <%= f.input :daily_rate %>
+      <%= f.submit "Update", class: "btn btn-primary" %>
+  <% end %>
+</div>

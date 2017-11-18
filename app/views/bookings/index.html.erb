@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <h1>Bookings</h1>
+    <table class="table table-striped">
+      <thread>
+        <tr>
+          <th>id</th>
+          <th>start_at</th>
+          <th>end_at</th>
+          <th>client_email</th>
+          <th>price</th>
+          <th>rental_id</th>
+          <th>action</th>
+        </tr>
+      </thread>
+      <tbody>
+      <% @bookings.each do |booking| %>
+          <tr>
+            <td><%= booking.id %></td>
+            <td><%= booking.start_at %></td>
+            <td><%= booking.end_at %></td>
+            <td><%= booking.client_email %></td>
+            <td><%= booking.price %></td>
+            <td><%= booking.rental_id %></td>
+            <td><%= link_to "Delete", booking_path(booking), method: :delete, class: "btn btn-danger btn-xs" %></td>
+
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+</div>

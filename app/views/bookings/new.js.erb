@@ -1,0 +1,3 @@
+$("#content-placeholder").hide(500, function() {
+    $("#content-placeholder").html("<%= escape_javascript(render(partial: "layouts/form_booking"))%>").show(700);
+} );

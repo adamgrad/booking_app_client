@@ -1,0 +1,38 @@
+<div class="form-container">
+  <div class="jumbotron">
+    <p>You are currently booking:  <strong><%= params[:rental_name] %></strong></p>
+    <p>Price: <strong>$<%= number_with_precision(params[:daily_rate], precision: 2) %> </strong>per day</p>
+    <%= simple_form_for @booking, remote: true do |f| %>
+        <%= f.hidden_field :rental_id, value: params[:rental_id] %>
+        <%= f.hidden_field :price, value: params[:daily_rate] %>
+        <%= f.input :start_at, input_html: { id: "dt1" } %>
+        <%= f.input :end_at, input_html: {id: "dt2" } %>
+        <%= f.input :client_email %>
+
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
+<script>
+  $(document).ready(function () {
+
+    $("#dt1").datepicker({
+      dateFormat: "yy-mm-dd",
+      minDate: 0,
+      onSelect: function (date) {
+        var dt2 = $('#dt2');
+        var startDate = $(this).datepicker('getDate');
+        var minDate = $(this).datepicker('getDate');
+        dt2.datepicker('setDate', minDate);
+        startDate.setDate(startDate.getDate());
+        dt2.datepicker('option', 'minDate', minDate);
+        $(this).datepicker('option', 'minDate', minDate);
+      }
+    });
+    $('#dt2').datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+  });
+</script>

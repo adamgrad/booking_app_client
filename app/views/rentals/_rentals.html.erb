@@ -1,0 +1,29 @@
+<div id="content-placeholder">
+
+</div>
+
+
+<% rentals.each_slice(3) do |slice| %>
+    <div class="row">
+
+      <% slice.each do |rental| %>
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <%= link_to rental_path(rental) do %>
+                  <%= image_tag Faker::Placeholdit.image("640x480", 'jpg', 'cccccc') %>
+              <% end %>
+              <div class="caption">
+                <h3><%= link_to rental.name, rental_url(rental) %></h3>
+                <p><%= Faker::Lorem.sentence(20) %></p>
+                <p class="lead"><%= number_to_currency rental.daily_rate %></p>
+                <p>
+                  <%= link_to "Book", new_booking_path(rental_id: rental.id, daily_rate: rental.daily_rate, rental_name: rental.name) , class: "btn btn-success btn-xl", remote: true %>
+                </p>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+<% end %>
+
+

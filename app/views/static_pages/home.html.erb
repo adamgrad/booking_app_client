@@ -1,0 +1,14 @@
+<div class="container">
+  <%= render 'layouts/carousel' %>
+  <p>
+
+  </p>
+  <div class="rentals">
+    <%= render partial: 'rentals/rentals', locals: { rentals: @rentals } %>
+  </div>
+
+  <%= paginate @rentals %>
+
+</div>
+
+

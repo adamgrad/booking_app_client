@@ -13,6 +13,11 @@ class Booking
     id.to_s
   end
 
+  def self.find(id)
+    api_booking = ApiBooking.new("http://localhost:3000", "SPAFOISFO2RFJ209FJ23")
+    api_booking.show_booking(id)
+  end
+
   def self.all
     api_booking = ApiBooking.new("http://localhost:3000", "SPAFOISFO2RFJ209FJ23")
     api_booking.index_booking
@@ -23,14 +28,18 @@ class Booking
     api_booking.create_booking(start_at, end_at, client_email, price, rental_id)
   end
 
+  def update_attributes(attributes)
+    api_booking = ApiBooking.new("http://localhost:3000", "SPAFOISFO2RFJ209FJ23")
+    api_booking.update_booking(attributes, id, rental_id)
+  end
+
   def destroy
     api_booking = ApiBooking.new("http://localhost:3000", "SPAFOISFO2RFJ209FJ23")
     api_booking.destroy_booking(id)
   end
 
-  def self.find(id)
-    api_booking = ApiBooking.new("http://localhost:3000", "SPAFOISFO2RFJ209FJ23")
-    api_booking.show_booking(id)
+  def rental
+    api_rental = ApiRental.new("http://localhost:3000", "SPAFOISFO2RFJ209FJ23")
+    api_rental.show_rental(rental_id)
   end
-
 end

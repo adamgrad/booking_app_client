@@ -4,11 +4,9 @@
     <p>Price: <strong>$<%= number_with_precision(params[:daily_rate], precision: 2) %> </strong>per day</p>
     <%= simple_form_for @booking, remote: true do |f| %>
         <%= f.hidden_field :rental_id, value: params[:rental_id] %>
-        <%= f.hidden_field :price, value: params[:daily_rate] %>
         <%= f.input :start_at, input_html: { id: "dt1" } %>
         <%= f.input :end_at, input_html: {id: "dt2" } %>
         <%= f.input :client_email %>
-
         <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>

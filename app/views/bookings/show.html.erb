@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Booking</h1>
+  <table class="table table-striped">
+    <thread>
+      <tr>
+        <th>id</th>
+        <th>start_at</th>
+        <th>end_at</th>
+        <th>client_email</th>
+        <th>price</th>
+        <th>rental_id</th>
+      </tr>
+    </thread>
+    <tbody>
+        <tr>
+          <td><%= @booking.id %></td>
+          <td><%= @booking.start_at %></td>
+          <td><%= @booking.end_at %></td>
+          <td><%= @booking.client_email %></td>
+          <td><%= @booking.price %></td>
+          <td><%= @booking.rental_id %></td>
+        </tr>
+    </tbody>
+  </table>
+
+  <h1>Rental:</h1>
+  <table class="table table-striped">
+    <thread>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>daily_rate</th>
+      </tr>
+    </thread>
+    <tbody>
+        <tr>
+          <td><%= @booking.rental.id %></td>
+          <td><%= @booking.rental.name %></td>
+          <td><%= @booking.rental.daily_rate %></td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>

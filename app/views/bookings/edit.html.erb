@@ -1,0 +1,37 @@
+<% provide(:title, "Edit Booking") %>
+<% provide(:button_text, "Save changes") %>
+<div class="container">
+  <h1>Edit Booking</h1>
+
+  <!-- create partial for booking form -->
+
+  <%= simple_form_for @booking, url: url_for(action: 'update', :controller => 'bookings'), :method => 'patch' do |f| %>
+      <%= f.input :start_at, input_html: { id: "dt1" } %>
+      <%= f.input :end_at, input_html: {id: "dt2" } %>
+      <%= f.input :client_email %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#dt1").datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: 0,
+            onSelect: function (date) {
+                var dt2 = $('#dt2');
+                var startDate = $(this).datepicker('getDate');
+                var minDate = $(this).datepicker('getDate');
+                dt2.datepicker('setDate', minDate);
+                startDate.setDate(startDate.getDate());
+                dt2.datepicker('option', 'minDate', minDate);
+                $(this).datepicker('option', 'minDate', minDate);
+            }
+        });
+        $('#dt2').datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+    });
+</script>

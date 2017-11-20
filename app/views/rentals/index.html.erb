@@ -23,7 +23,7 @@
           <td><%= rent.daily_rate %></td>
           <td>
             <%= link_to "Book", new_booking_path(rental_id: rent.id, daily_rate: rent.daily_rate, rental_name: rent.name) , class: "btn btn-success btn-xs", remote: true %>
-            <%= link_to "Show", rental_url(rent), class: "btn btn-default btn-xs" %>
+            <%= link_to "Show", rental_path(rent), class: "btn btn-default btn-xs" %>
             <%= link_to "Edit", edit_rental_path(rent), class: "btn btn-primary btn-xs" %>
             <%= link_to "Delete", rental_path(rent), method: :delete, class: "btn btn-danger btn-xs" %>
           </td>

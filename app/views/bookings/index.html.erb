@@ -21,7 +21,11 @@
             <td><%= booking.client_email %></td>
             <td><%= booking.price %></td>
             <td><%= booking.rental_id %></td>
-            <td><%= link_to "Delete", booking_path(booking), method: :delete, class: "btn btn-danger btn-xs" %></td>
+            <td>
+              <%= link_to "Show", booking_path(booking), class: "btn btn-default btn-xs" %>
+              <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-primary btn-xs" %>
+              <%= link_to "Delete", booking_path(booking), method: :delete, class: "btn btn-danger btn-xs" %>
+            </td>
 
           </tr>
       <% end %>

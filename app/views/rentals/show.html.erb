@@ -1,7 +1,46 @@
 <div class="container">
   <h1>Rental</h1>
   <p>
-    <%= @rental.name %>  -  <%= @rental.daily_rate %>
-    <%= link_to "Edit", edit_rental_path(@rental), class: "btn btn-primary btn-xs" %>
-  </p>
+  <table class="table table-striped">
+    <thread>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>daily_rate</th>
+      </tr>
+    </thread>
+    <tbody>
+    <tr>
+      <td><%= @rental.id %></td>
+      <td><%= @rental.name %></td>
+      <td><%= @rental.daily_rate %></td>
+    </tr>
+    </tbody>
+  </table>  </p>
+
+  <h1>Bookings:</h1>
+  <table class="table table-striped">
+    <thread>
+      <tr>
+        <th>id</th>
+        <th>start_at</th>
+        <th>end_at</th>
+        <th>client_email</th>
+        <th>price</th>
+        <th>rental_id</th>
+      </tr>
+    </thread>
+    <tbody>
+    <% @rental.bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.id %></td>
+          <td><%= booking.start_at %></td>
+          <td><%= booking.end_at %></td>
+          <td><%= booking.client_email %></td>
+          <td><%= booking.price %></td>
+          <td><%= booking.rental_id %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>

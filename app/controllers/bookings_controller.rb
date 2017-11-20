@@ -2,7 +2,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.price *= (@booking.end_at.to_date.day - @booking.start_at.to_date.day)
+    rental_rate = Rental.find(@booking.rental_id).daily_rate
+    @booking.price = (@booking.end_at.to_date.day - @booking.start_at.to_date.day) * rental_rate
     @booking.save
     respond_to do |format|
       format.html do
@@ -10,6 +11,16 @@ class BookingsController < ApplicationController
       end
       format.js { }
     end
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update_attributes(booking_params)
+    redirect_to bookings_path
   end
 
   def show
@@ -33,6 +44,6 @@ class BookingsController < ApplicationController
   private
 
     def booking_params
-      params.require(:booking).permit(:start_at, :end_at, :client_email, :price, :rental_id)
+      params.require(:booking).permit(:start_at, :end_at, :client_email, :rental_id)
     end
 end

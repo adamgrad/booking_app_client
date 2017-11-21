@@ -18,6 +18,7 @@ gem 'simple-form-datepicker', '~> 0.1.3'
 gem 'jquery-ui-rails'
 gem 'kaminari'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'figaro'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

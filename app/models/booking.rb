@@ -14,32 +14,41 @@ class Booking
   end
 
   def self.find(id)
-    api_booking = ApiBooking.new(ENV["HOST"], ENV["API_TOKEN"])
-    api_booking.show_booking(id)
+    Booking.access_api.show_booking(id)
   end
 
   def self.all
-    api_booking = ApiBooking.new(ENV["HOST"], ENV["API_TOKEN"])
-    api_booking.index_booking
+    Booking.access_api.index_booking
   end
 
   def save
-    api_booking = ApiBooking.new(ENV["HOST"], ENV["API_TOKEN"])
-    api_booking.create_booking(start_at, end_at, client_email, price, rental_id)
+    Booking.access_api.create_booking(start_at, end_at, client_email, price, rental_id)
   end
 
   def update_attributes(attributes)
-    api_booking = ApiBooking.new(ENV["HOST"], ENV["API_TOKEN"])
-    api_booking.update_booking(attributes, id, rental_id)
+    attributes[:price] = booking_duration(attributes) * rental_daily_rate(rental_id)
+    Booking.access_api.update_booking(attributes, id, rental_id)
   end
 
   def destroy
-    api_booking = ApiBooking.new(ENV["HOST"], ENV["API_TOKEN"])
-    api_booking.destroy_booking(id)
+    Booking.access_api.destroy_booking(id)
   end
 
   def rental
-    api_rental = ApiRental.new(ENV["HOST"], ENV["API_TOKEN"])
-    api_rental.show_rental(rental_id)
+    Rental.access_api.show_rental(rental_id)
   end
+
+  private
+
+    def booking_duration(attributes)
+      (attributes[:end_at].to_date - attributes[:start_at].to_date).to_i
+    end
+
+    def rental_daily_rate(rental_id)
+      Rental.access_api.show_rental(rental_id).daily_rate
+    end
+
+    def self.access_api
+      ApiBooking.new(ENV['HOST'], ENV['API_TOKEN'])
+    end
 end

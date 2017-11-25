@@ -1,30 +1,23 @@
 class ApiBooking < ApiClient
 
   def create_booking(start_at, end_at, client_email, price, rental_id)
-    post('/bookings', create_jsonapi_booking_hash(
-        { start_at: start_at, end_at: end_at, client_email: client_email, price: price }, rental_id ))
+    attributes = { start_at: start_at, end_at: end_at, client_email: client_email, price: price }
+    post('/bookings', create_jsonapi_booking_hash(rental_id , attributes).to_json)
   end
 
   def index_booking
     JSON(get('/bookings')).fetch('data').map do |resource_hash|
-      rental_link = resource_hash.fetch('relationships').fetch('rental').fetch('links').fetch('related')
-      rental_id = JSON(get"#{rental_link.gsub(host, '')}").fetch('data').fetch('id')
-      Booking.new({ id: resource_hash["id"] }.merge!(resource_hash["attributes"].transform_keys { |key| key.underscore }.merge!({rental_id: rental_id}) ))
+      Booking.new(format_booking_attributes(resource_hash))
     end
   end
 
   def show_booking(id)
-    booking_data = JSON(get"/bookings/#{id}").fetch("data")
-    attributes = booking_data.fetch("attributes").transform_keys { |key| key.underscore }
-    rental_link = booking_data.fetch('relationships').fetch('rental').fetch('links').fetch('related')
-    rental_id = JSON(get"#{rental_link.gsub(host, '')}").fetch('data').fetch('id')
-    attributes[:id] = id
-    attributes[:rental_id] = rental_id.to_i
-    Booking.new(attributes)
+    booking_data = JSON(get"/bookings/#{id}").fetch('data')
+    Booking.new(format_booking_attributes(booking_data))
   end
 
-  def update_booking(attributes, id, rental_id)
-    patch("/bookings/#{id}", update_jsonapi_booking_hash(attributes, rental_id, id))
+  def update_booking(attributes, booking_id, rental_id)
+    patch("/bookings/#{booking_id}", update_jsonapi_booking_hash(booking_id, rental_id, attributes).to_json)
   end
 
   def destroy_booking(id)
@@ -33,28 +26,31 @@ class ApiBooking < ApiClient
 
   private
 
-    def create_jsonapi_booking_hash(attributes, rental_id)
-      { data:
-            { type: "bookings",
-              relationships:
-                  { rental:
-                        { data:
-                              { type: "rentals", id: rental_id} } },
-              attributes: attributes.transform_keys { |key| key.to_s.dasherize }
-            }
-      }.to_json
+    def get_rental_id(resource_hash)
+      resource_hash.fetch('relationships').fetch('rental').fetch('data').fetch('id')
     end
 
-    def update_jsonapi_booking_hash(attributes, rental_id, id)
+    def format_booking_attributes(resource_hash)
+      attributes = resource_hash.fetch('attributes').transform_keys { |key| key.underscore }
+      attributes[:id] = resource_hash['id']
+      attributes[:rental_id] = get_rental_id(resource_hash)
+      attributes
+    end
+
+    def create_jsonapi_booking_hash(rental_id, attributes)
       { data:
-            { type: "bookings",
-              id: id,
-              relationships:
-                  { rental:
-                        { data:
-                              { type: "rentals", id: rental_id} } },
-              attributes: attributes.transform_keys { |key| key.to_s.dasherize }
-            }
-      }.to_json
+        { type: "bookings",
+          relationships:
+            { rental:
+              { data:
+                { type: "rentals", id: rental_id} } },
+          attributes: attributes.transform_keys { |key| key.to_s.dasherize }
+        }
+      }
+    end
+
+    def update_jsonapi_booking_hash(booking_id,rental_id, attributes)
+      h1 = { data: { id: booking_id } }
+      create_jsonapi_booking_hash(rental_id, attributes).deep_merge(h1)
     end
 end

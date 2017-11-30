@@ -2,8 +2,11 @@ class RentalsController < ApplicationController
 
   def create
     @rental = Rental.new(rental_params)
-    @rental.save
-    redirect_to rental_url(@rental)
+    if @rental.save
+      redirect_to rental_url(@rental)
+    else
+      render action: 'new'
+    end
   end
 
   def index

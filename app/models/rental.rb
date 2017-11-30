@@ -25,7 +25,8 @@ class Rental
   end
 
   def save
-    self.id = Rental.access_api.create_rental(name, daily_rate)
+    api_response = Rental.access_api.create_rental(name, daily_rate)
+    api_response ? self.id = api_response : false
   end
 
   def destroy

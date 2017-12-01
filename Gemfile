@@ -19,6 +19,7 @@ gem 'jquery-ui-rails'
 gem 'kaminari'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'figaro'
+gem 'date_validator'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

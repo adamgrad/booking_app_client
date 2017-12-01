@@ -23,8 +23,11 @@ class RentalsController < ApplicationController
 
   def update
     @rental = Rental.find(params[:id])
-    @rental.update_attributes(rental_params)
-    redirect_to rentals_path
+    if @rental.update_attributes(rental_params)
+      redirect_to rentals_path
+    else
+      render action: 'edit'
+    end
   end
 
   def new

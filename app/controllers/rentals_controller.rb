@@ -2,8 +2,11 @@ class RentalsController < ApplicationController
 
   def create
     @rental = Rental.new(rental_params)
-    @rental.save
-    redirect_to rental_url(@rental)
+    if @rental.save
+      redirect_to rental_url(@rental)
+    else
+      render action: 'new'
+    end
   end
 
   def index
@@ -20,8 +23,11 @@ class RentalsController < ApplicationController
 
   def update
     @rental = Rental.find(params[:id])
-    @rental.update_attributes(rental_params)
-    redirect_to rentals_path
+    if @rental.update_attributes(rental_params)
+      redirect_to rentals_path
+    else
+      render action: 'edit'
+    end
   end
 
   def new

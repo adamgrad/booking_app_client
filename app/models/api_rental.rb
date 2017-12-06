@@ -2,7 +2,8 @@ class ApiRental < ApiClient
 
   def create_rental(name, daily_rate)
     response_body = post('/rentals', create_jsonapi_rental_hash({ name: name, daily_rate: daily_rate } ).to_json)
-    JSON(response_body).fetch('data').fetch('id')
+    response_hash = JSON response_body
+    has_errors?(response_body) ? nil : get_rental_id(response_hash)
   end
 
   def index_rental
@@ -32,6 +33,14 @@ class ApiRental < ApiClient
   end
 
   private
+
+    def get_rental_id(data_hash)
+      data_hash.fetch('data').fetch('id')
+    end
+
+    def has_errors?(response_hash)
+      response_hash.include?('errors') ? true : false
+    end
 
     def get_bookings_link(rental_id)
       link = JSON(get "/rentals/#{rental_id}")

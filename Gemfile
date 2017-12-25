@@ -50,7 +50,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'rspec-rails'
-  gem 'vcr'
+  gem 'vcr', '2.9.3'
   gem 'webmock'
   gem 'selenium-webdriver'
 end

@@ -46,19 +46,8 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
-VCR.configure do |config|
-  # config.before_http_request do |request|
-  #   host = "http://mini_bookingsyncapi.test"
-  #   if request.uri.include?(host)
-  #     cassette_name = request.method.to_s + request.uri.sub(host, "")
-  #     VCR.insert_cassette(cassette_name.gsub("/", "_"))
-  #   end
-  # end
-  #
-  # config.after_http_request do |request|
-  #   VCR.eject_cassette
-  # end
 
+VCR.configure do |config|
   config.ignore_localhost = true
   config.cassette_library_dir = Rails.root.join("spec", "vcr")
   config.hook_into :webmock
@@ -79,4 +68,4 @@ Capybara.register_driver :headless_chrome do |app|
     desired_capabilities: capabilities
 end
 
-Capybara.javascript_driver = :headless_chrome
+Capybara.javascript_driver = :chrome

@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Rental management", type: :feature do
   scenario "Successfully creates rental" do
-    VCR.use_cassette("post_rental", record: :all) do
+    VCR.use_cassette "post_rental" do
       visit root_path
       click_link "RENTALS"
       click_link "Create Rental"

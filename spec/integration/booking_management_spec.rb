@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Booking management", type: :feature do
   scenario "Successfully creates booking", js: true do
-    VCR.use_cassette("nagraj_to", record: :all) do
+    VCR.use_cassette("post_bookings") do
       visit "/rentals"
       expect(page).to have_content "Rental Test"
       find(:xpath, "//tr[td[contains(.,'Rental Test')]]/td/a", :text => "Book").click

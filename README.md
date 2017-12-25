@@ -1,24 +1,22 @@
-# README
+# Client Application for mini BookingSync API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
+These instruction will get you a copy of the project up and running on your local machine.
 
-Things you may want to cover:
+```
+$ cd ~/workspace
+$ git clone https://github.com/adamgrad/booking_app_client.git
+$ cd booking_app_client
+$ bundle install
+```
+### Important config
+Make sure to rename config file
+```
+$ mv config/application.yml.example config/application.yml
+```
+In `application.yml`  *HOST* is set to http://localhost:3000 by default. If you are using different address for the server make sure to apply changes to this file.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+After all those steps your test suite should pass
+```
+$ bin/rspec
+```

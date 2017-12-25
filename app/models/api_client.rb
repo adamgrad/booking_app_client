@@ -31,16 +31,11 @@ class ApiClient
   def connection
     @connection ||= Faraday.new(host) do |c|
       c.request :url_encoded
-      #c.use FaradayMiddleware::ParseJson, content_type: 'application/json'
-      #c.use FaradayMiddleware::FollowRedirects, limit: 5
-      #c.use Faraday::Response::RaiseError
       c.adapter Faraday.default_adapter
       c.headers['Content-Type'] = 'application/vnd.api+json'
       c.authorization :Token, api_token if api_token.present?
     end
   end
-
-
 end
 
 

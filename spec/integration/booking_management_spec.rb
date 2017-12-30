@@ -17,7 +17,7 @@ RSpec.feature "Booking management", type: :feature do
       # expect(page).to have_content DateTime.now.strftime("%B")
       within(".ui-datepicker") { click_link (Date.today.day + 2).to_s }
       fill_in "Client email", with: "capybara@email.com"
-      click_button "Submit"
+      # click_button "Submit"
     end
   end
 end

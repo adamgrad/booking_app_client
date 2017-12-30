@@ -9,6 +9,9 @@ require "rspec/rails"
 require "capybara/rspec"
 require "vcr"
 require "selenium/webdriver"
+require "capybara/rails"
+require "capybara/webkit"
+require "billy/capybara/rspec"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -53,6 +56,13 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.filter_sensitive_data("<TOKEN>") { ENV.fetch("API_TOKEN") }
 end
+#
+# Billy.configure do |c|
+#   c.cache = true
+#   c.persist_cache = true
+#   c.cache_path = Rails.root.join("spec", "cache")
+# end
+
 
 Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
@@ -68,4 +78,4 @@ Capybara.register_driver :headless_chrome do |app|
     desired_capabilities: capabilities
 end
 
-Capybara.javascript_driver = :chrome
+Capybara.javascript_driver = :headless_chrome

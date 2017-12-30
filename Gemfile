@@ -66,10 +66,14 @@ group :development do
 end
 
 group :test do
+  gem 'puffing-billy'
   gem 'simplecov'
   gem 'capybara-selenium'
   gem 'launchy'
+  gem 'capybara-webkit', '~> 1.14'
   gem 'capybara-bootstrap-datepicker'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

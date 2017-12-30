@@ -5,7 +5,7 @@ class RentalsController < ApplicationController
     if @rental.save
       redirect_to rental_url(@rental)
     else
-      render action: 'new'
+      render action: "new"
     end
   end
 
@@ -26,7 +26,7 @@ class RentalsController < ApplicationController
     if @rental.update_attributes(rental_params)
       redirect_to rentals_path
     else
-      render action: 'edit'
+      render action: "edit"
     end
   end
 

@@ -20,7 +20,7 @@ RSpec.describe RentalsController, type: :controller do
         expect(response).to have_http_status 302
       end
 
-      it "redirects to rental" do
+      it "redirects to rental_path" do
         VCR.use_cassette "create_rental" do
           expect(subject).to redirect_to rental_url
         end
@@ -90,9 +90,9 @@ RSpec.describe RentalsController, type: :controller do
         expect(response).to have_http_status 302
       end
 
-      it "redirects to rental" do
+      it "redirects to rentals_path" do
         VCR.use_cassette "rentals#update" do
-          expect(subject).to redirect_to "/rentals"
+          expect(subject).to redirect_to rentals_path
         end
       end
     end
@@ -120,7 +120,7 @@ RSpec.describe RentalsController, type: :controller do
 
     it "redirects to /rentals" do
       VCR.use_cassette "rentals#destroy" do
-        expect(subject).to redirect_to "/rentals"
+        expect(subject).to redirect_to rentals_path
       end
     end
   end

@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
       end
     else
       create_form_params
-      render action: 'new'
+      render action: "new"
     end
   end
 
@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     if @booking.update_attributes(booking_params)
       redirect_to bookings_path
     else
-      render action: 'edit'
+      render action: "edit"
     end
   end
 

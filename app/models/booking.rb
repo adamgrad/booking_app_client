@@ -1,4 +1,5 @@
 class Booking
+
   include ActiveModel::Model
   include ActiveModelAttributes
 
@@ -9,10 +10,10 @@ class Booking
   attribute :price, :decimal
   attribute :rental_id, :integer
   validates :price, :rental_id, :start_at, presence: true
-  validates :end_at, date: { after_or_equal_to: Proc.new { |obj| obj.start_at } }, presence: true
+  validates :end_at, date: { after_or_equal_to: proc { |obj| obj.start_at } }, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :client_email, presence: true, length: { maximum: 255 },
-            format: { with: VALID_EMAIL_REGEX }
+                           format: { with: VALID_EMAIL_REGEX }
 
   def to_param
     id.to_s
@@ -28,7 +29,7 @@ class Booking
 
   def save
     access_api.create_booking(start_at, end_at, client_email, price, rental_id)
-    self.valid?
+    valid?
   end
 
   def update_attributes(attributes)
@@ -37,7 +38,7 @@ class Booking
       attributes[:price] = booking_duration(attributes) * rental_daily_rate(rental_id)
       access_api.update_booking(attributes, id, rental_id)
     end
-    self.valid?
+    valid?
   end
 
   def destroy
@@ -49,7 +50,7 @@ class Booking
   end
 
   def self.access_api
-    ApiBooking.new(ENV['HOST'], ENV['API_TOKEN'])
+    ApiBooking.new(ENV["HOST"], ENV["API_TOKEN"])
   end
 
   private
@@ -67,7 +68,7 @@ class Booking
     end
 
     def dates_exist?(attributes)
-      (attributes[:end_at].present?) && (attributes[:start_at].present?)
+      attributes[:end_at].present? && attributes[:start_at].present?
     end
 
     def rental_daily_rate(rental_id)
@@ -77,4 +78,5 @@ class Booking
     def access_api
       self.class.access_api
     end
+
 end

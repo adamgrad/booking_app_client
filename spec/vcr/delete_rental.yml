@@ -1,0 +1,330 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://mini_bookingsyncapi.test/rentals
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Token <TOKEN>
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json
+      Etag:
+      - W/"b555e4c7ebf6b6141b015adc63b07a95"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - c93ee410-4da0-45d5-be37-88a3d643684b
+      X-Runtime:
+      - '0.005044'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Wed, 27 Dec 2017 18:10:26 GMT
+      Content-Length:
+      - '340'
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"54","type":"rentals","links":{"self":"http://mini_bookingsyncAPI.test/rentals/54"},"attributes":{"name":"RSpec
+        Changed","daily-rate":"100.0"},"relationships":{"bookings":{"links":{"self":"http://mini_bookingsyncAPI.test/rentals/54/relationships/bookings","related":"http://mini_bookingsyncAPI.test/rentals/54/bookings"}}}}]}'
+    http_version: 
+  recorded_at: Wed, 27 Dec 2017 18:10:26 GMT
+- request:
+    method: get
+    uri: http://mini_bookingsyncapi.test/rentals/54
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Token <TOKEN>
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json
+      Etag:
+      - W/"97e1af3cac10f9d008f5dbd4b9274dbe"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - c9e5fda0-9d66-4fe8-bb2f-0e383e95fdbd
+      X-Runtime:
+      - '0.005458'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Wed, 27 Dec 2017 18:10:26 GMT
+      Content-Length:
+      - '338'
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"54","type":"rentals","links":{"self":"http://mini_bookingsyncAPI.test/rentals/54"},"attributes":{"name":"RSpec
+        Changed","daily-rate":"100.0"},"relationships":{"bookings":{"links":{"self":"http://mini_bookingsyncAPI.test/rentals/54/relationships/bookings","related":"http://mini_bookingsyncAPI.test/rentals/54/bookings"}}}}}'
+    http_version: 
+  recorded_at: Wed, 27 Dec 2017 18:10:26 GMT
+- request:
+    method: get
+    uri: http://mini_bookingsyncapi.test/rentals/54
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Token <TOKEN>
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json
+      Etag:
+      - W/"97e1af3cac10f9d008f5dbd4b9274dbe"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - e79331cf-d165-480a-a77a-298698126d22
+      X-Runtime:
+      - '0.007225'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Wed, 27 Dec 2017 18:10:26 GMT
+      Content-Length:
+      - '338'
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"54","type":"rentals","links":{"self":"http://mini_bookingsyncAPI.test/rentals/54"},"attributes":{"name":"RSpec
+        Changed","daily-rate":"100.0"},"relationships":{"bookings":{"links":{"self":"http://mini_bookingsyncAPI.test/rentals/54/relationships/bookings","related":"http://mini_bookingsyncAPI.test/rentals/54/bookings"}}}}}'
+    http_version: 
+  recorded_at: Wed, 27 Dec 2017 18:10:26 GMT
+- request:
+    method: get
+    uri: http://mini_bookingsyncapi.test/rentals/54
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Token <TOKEN>
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json
+      Etag:
+      - W/"97e1af3cac10f9d008f5dbd4b9274dbe"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - a461a8aa-cf51-4936-9422-351fa124b657
+      X-Runtime:
+      - '0.004941'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Wed, 27 Dec 2017 18:10:26 GMT
+      Content-Length:
+      - '338'
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"54","type":"rentals","links":{"self":"http://mini_bookingsyncAPI.test/rentals/54"},"attributes":{"name":"RSpec
+        Changed","daily-rate":"100.0"},"relationships":{"bookings":{"links":{"self":"http://mini_bookingsyncAPI.test/rentals/54/relationships/bookings","related":"http://mini_bookingsyncAPI.test/rentals/54/bookings"}}}}}'
+    http_version: 
+  recorded_at: Wed, 27 Dec 2017 18:10:26 GMT
+- request:
+    method: get
+    uri: http://mini_bookingsyncapi.test/rentals/54/bookings
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Token <TOKEN>
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json
+      Etag:
+      - W/"8fe32e407a1038ee38753b70e5374b3a"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - f6e65411-a967-4c3d-bb59-ecc93fa86ee5
+      X-Runtime:
+      - '0.011694'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Wed, 27 Dec 2017 18:10:26 GMT
+      Content-Length:
+      - '11'
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    http_version: 
+  recorded_at: Wed, 27 Dec 2017 18:10:26 GMT
+- request:
+    method: delete
+    uri: http://mini_bookingsyncapi.test/rentals/54
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Token <TOKEN>
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Cache-Control:
+      - no-cache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - ae608e03-04c0-499a-984a-7cb1365ae278
+      X-Runtime:
+      - '0.007553'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Wed, 27 Dec 2017 18:10:26 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 27 Dec 2017 18:10:26 GMT
+- request:
+    method: get
+    uri: http://mini_bookingsyncapi.test/rentals
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Token <TOKEN>
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json
+      Etag:
+      - W/"8fe32e407a1038ee38753b70e5374b3a"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - 95dae701-4533-49b7-95ba-0dbf0b7e975f
+      X-Runtime:
+      - '0.004369'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Wed, 27 Dec 2017 18:10:26 GMT
+      Content-Length:
+      - '11'
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+    http_version: 
+  recorded_at: Wed, 27 Dec 2017 18:10:26 GMT
+recorded_with: VCR 3.0.3

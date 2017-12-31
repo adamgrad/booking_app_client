@@ -1,0 +1,107 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://mini_bookingsyncapi.test/rentals
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Token <TOKEN>
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json
+      Etag:
+      - W/"39244f7f764aa84a71f0034ceb12b7e9"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - da9b1e04-419f-47fa-8fcd-4508c8a6b3fa
+      X-Runtime:
+      - '0.014074'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Wed, 27 Dec 2017 18:05:26 GMT
+      Content-Length:
+      - '338'
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"53","type":"rentals","links":{"self":"http://mini_bookingsyncAPI.test/rentals/53"},"attributes":{"name":"Rental
+        Test","daily-rate":"123.0"},"relationships":{"bookings":{"links":{"self":"http://mini_bookingsyncAPI.test/rentals/53/relationships/bookings","related":"http://mini_bookingsyncAPI.test/rentals/53/bookings"}}}}]}'
+    http_version: 
+  recorded_at: Wed, 27 Dec 2017 18:05:26 GMT
+- request:
+    method: get
+    uri: https://www.gstatic.com/chrome/intelligence/assist/ranker/models/translate/2017/03/translate_ranker_model_20170329.pb.bin
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Host:
+      - www.gstatic.com
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/63.0.3239.108 Safari/537.36
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - text/html
+      Content-Length:
+      - '1599'
+      Date:
+      - Sat, 09 Dec 2017 20:54:32 GMT
+      Expires:
+      - Sun, 09 Dec 2018 20:54:32 GMT
+      Last-Modified:
+      - Fri, 07 Apr 2017 01:45:00 GMT
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - sffe
+      X-Xss-Protection:
+      - 1; mode=block
+      Cache-Control:
+      - public, max-age=31536000
+      Age:
+      - '1545054'
+      Alt-Svc:
+      - hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337;
+        quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Wed, 27 Dec 2017 18:05:26 GMT
+recorded_with: VCR 3.0.3

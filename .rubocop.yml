@@ -1,0 +1,37 @@
+Metrics/MethodLength:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+Bundler/OrderedGems:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+ClassAndModuleChildren:
+  EnforcedStyle: compact
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines
+Style/BlockDelimiters:
+  Enabled: false
+Layout/IndentationConsistency:
+  Enabled: false
+Style/DateTime:
+  Enabled: false
+
+
+AllCops:
+  Exclude:
+    - log/**
+    - Gemfile
+    - test/**/*
+    - config/simple_form_bootrsrap.rb
+    - config/initializers/simple_form_bootstrap.rb

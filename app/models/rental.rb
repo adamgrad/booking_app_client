@@ -1,4 +1,5 @@
 class Rental
+
   include ActiveModel::Model
   include ActiveModelAttributes
 
@@ -22,17 +23,17 @@ class Rental
 
   def update_attributes(attributes)
     overwrite_self_attributes(attributes)
-    access_api.update_rental(self.id, attributes)
-    self.valid?
+    access_api.update_rental(id, attributes)
+    valid?
   end
 
   def save
     self.id = access_api.create_rental(name, daily_rate)
-    self.valid?
+    valid?
   end
 
   def destroy
-    Rental.find(id).bookings.each { |booking| booking.destroy }
+    Rental.find(id).bookings.each(&:destroy)
     access_api.destroy_rental(id)
   end
 
@@ -41,7 +42,7 @@ class Rental
   end
 
   def self.access_api
-    ApiRental.new(ENV['HOST'], ENV['API_TOKEN'])
+    ApiRental.new(ENV["HOST"], ENV["API_TOKEN"])
   end
 
   private
@@ -54,4 +55,5 @@ class Rental
     def access_api
       self.class.access_api
     end
+
 end

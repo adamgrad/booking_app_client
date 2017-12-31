@@ -9,11 +9,11 @@ class BookingsController < ApplicationController
         format.html do
           redirect_to root_path
         end
-        format.js { }
+        format.js {}
       end
     else
       create_form_params
-      render action: 'new'
+      render action: "new"
     end
   end
 
@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     if @booking.update_attributes(booking_params)
       redirect_to bookings_path
     else
-      render action: 'edit'
+      render action: "edit"
     end
   end
 
@@ -64,4 +64,5 @@ class BookingsController < ApplicationController
     def calculate_booking_price
       (@booking.end_at - @booking.start_at + 1.day).to_i / 1.day * @rental.daily_rate
     end
+
 end

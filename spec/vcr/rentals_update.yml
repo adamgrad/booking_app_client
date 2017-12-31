@@ -1,0 +1,98 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://mini_bookingsyncapi.test/rentals/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Token <TOKEN>
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json
+      Etag:
+      - W/"5080ca0fcd2cc94955c34c7772608731"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - 8371e66f-e594-4eab-a97c-33e813b5d68e
+      X-Runtime:
+      - '0.011106'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Fri, 29 Dec 2017 23:18:32 GMT
+      Content-Length:
+      - '325'
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"rentals","links":{"self":"http://mini_bookingsyncAPI.test/rentals/1"},"attributes":{"name":"Test","daily-rate":"450.0"},"relationships":{"bookings":{"links":{"self":"http://mini_bookingsyncAPI.test/rentals/1/relationships/bookings","related":"http://mini_bookingsyncAPI.test/rentals/1/bookings"}}}}}'
+    http_version: 
+  recorded_at: Fri, 29 Dec 2017 23:18:32 GMT
+- request:
+    method: patch
+    uri: http://mini_bookingsyncapi.test/rentals/1
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"rentals","attributes":{"name":"Test Updated","daily-rate":"499"},"id":1}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Token <TOKEN>
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json
+      Etag:
+      - W/"ce2b4fda6f4deebb888423eec0bcc093"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - ec67dd44-e47b-45cb-b2a4-c8e4e3a963d5
+      X-Runtime:
+      - '0.009887'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Fri, 29 Dec 2017 23:18:32 GMT
+      Content-Length:
+      - '333'
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"rentals","links":{"self":"http://mini_bookingsyncAPI.test/rentals/1"},"attributes":{"name":"Test
+        Updated","daily-rate":"499.0"},"relationships":{"bookings":{"links":{"self":"http://mini_bookingsyncAPI.test/rentals/1/relationships/bookings","related":"http://mini_bookingsyncAPI.test/rentals/1/bookings"}}}}}'
+    http_version: 
+  recorded_at: Fri, 29 Dec 2017 23:18:32 GMT
+recorded_with: VCR 3.0.3

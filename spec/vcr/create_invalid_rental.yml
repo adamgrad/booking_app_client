@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://mini_bookingsyncapi.test/rentals
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"rentals","attributes":{"name":"","daily-rate":null}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      Authorization:
+      - Token <TOKEN>
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/vnd.api+json
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - 9dfa32c7-c168-4cba-8bf4-34c641fcbf5d
+      X-Runtime:
+      - '0.004950'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Fri, 29 Dec 2017 16:50:52 GMT
+      Content-Length:
+      - '290'
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"title":"can''t be blank","detail":"name - can''t be blank","code":"100","source":{"pointer":"/data/attributes/name"},"status":"422"},{"title":"can''t
+        be blank","detail":"daily-rate - can''t be blank","code":"100","source":{"pointer":"/data/attributes/daily-rate"},"status":"422"}]}'
+    http_version: 
+  recorded_at: Fri, 29 Dec 2017 16:50:52 GMT
+recorded_with: VCR 3.0.3

@@ -45,4 +45,5 @@ class RentalsController < ApplicationController
     def rental_params
       params.require(:rental).permit(:name, :daily_rate)
     end
+
 end

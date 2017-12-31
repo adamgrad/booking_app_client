@@ -56,13 +56,12 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.filter_sensitive_data("<TOKEN>") { ENV.fetch("API_TOKEN") }
 end
-#
+
 # Billy.configure do |c|
 #   c.cache = true
 #   c.persist_cache = true
 #   c.cache_path = Rails.root.join("spec", "cache")
 # end
-
 
 Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)

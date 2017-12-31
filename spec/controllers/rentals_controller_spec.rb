@@ -4,7 +4,7 @@ RSpec.describe RentalsController, type: :controller do
   describe "#create" do
     context "With valid data" do
       let(:rental) { form_rental_create_hash("Test", 450) }
-      subject { post :create, params: rental}
+      subject { post :create, params: rental }
 
       it "responds successfully" do
         VCR.use_cassette "create_rental" do
@@ -28,7 +28,7 @@ RSpec.describe RentalsController, type: :controller do
     end
 
     context "With invalid data" do
-      let (:invalid_rental) { form_rental_create_hash("", "") }
+      let(:invalid_rental) { form_rental_create_hash("", "") }
       subject { post :create, params: invalid_rental }
 
       it "redirects to #new" do

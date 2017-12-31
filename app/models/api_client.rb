@@ -25,6 +25,7 @@ class ApiClient
     response.body
   end
 
+  private
 
   attr_reader :host, :api_token
 
@@ -32,10 +33,9 @@ class ApiClient
     @connection ||= Faraday.new(host) do |c|
       c.request :url_encoded
       c.adapter Faraday.default_adapter
-      c.headers['Content-Type'] = 'application/vnd.api+json'
+      c.headers["Content-Type"] = "application/vnd.api+json"
       c.authorization :Token, api_token if api_token.present?
     end
   end
+
 end
-
-

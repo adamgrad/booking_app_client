@@ -60,7 +60,7 @@ RSpec.describe BookingsController, type: :controller do
       end
 
       context "With HTML format" do
-        subject { post :create, format: :html, params: booking}
+        subject { post :create, format: :html, params: booking }
 
         it "renders #new" do
           VCR.use_cassette "bookings_post_invalid" do
@@ -156,13 +156,12 @@ RSpec.describe BookingsController, type: :controller do
     end
   end
 
-  def booking_create_hash(rental_id, start_at, end_at, client_email )
+  def booking_create_hash(rental_id, start_at, end_at, client_email)
     { booking: { rental_id: rental_id, start_at: start_at, end_at: end_at, client_email: client_email } }
   end
 
   def booking_update_hash(booking_id, start_at, end_at, client_email)
     { id: booking_id, booking:
-      { start_at: start_at, end_at: end_at, client_email: client_email }
-    }
+      { start_at: start_at, end_at: end_at, client_email: client_email } }
   end
 end

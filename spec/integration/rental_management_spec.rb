@@ -19,7 +19,7 @@ RSpec.feature "Rental management", type: :feature do
     VCR.use_cassette "patch_rental" do
       visit "/rentals"
       expect(page).to have_content "RSpec Rental"
-      find(:xpath, "//tr[td[contains(.,'RSpec Rental')]]/td/a", :text => "Edit").click
+      find(:xpath, "//tr[td[contains(.,'RSpec Rental')]]/td/a", text: "Edit").click
       expect(page).to have_content "Edit Rental"
       fill_in "Name", with: "RSpec Changed"
       fill_in "Daily rate", with: 100
@@ -33,7 +33,7 @@ RSpec.feature "Rental management", type: :feature do
     VCR.use_cassette "delete_rental" do
       visit "/rentals"
       expect(page).to have_content "RSpec Changed"
-      find(:xpath, "//tr[td[contains(.,'RSpec Changed')]]/td/a", :text => "Delete").click
+      find(:xpath, "//tr[td[contains(.,'RSpec Changed')]]/td/a", text: "Delete").click
       expect(page).not_to have_content "RSpec Changed"
       expect(page).not_to have_content "100"
     end
